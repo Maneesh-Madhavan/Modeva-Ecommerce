@@ -32,7 +32,7 @@ const Collection = () => {
     }
   };
 
-  useEffect(() => { applyFilter(); }, [category, subCategory, search, showSearch]);
+  useEffect(() => { applyFilter(); }, [category, subCategory, search, showSearch,products]);
   useEffect(() => { sortProduct(); }, [sortType]);
   useEffect(() => { const handleResize = () => { if (window.innerWidth >= 640) setShowFilter(false); }; window.addEventListener("resize", handleResize); return () => window.removeEventListener("resize", handleResize); }, []);
 
