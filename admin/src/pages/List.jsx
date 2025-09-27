@@ -19,7 +19,6 @@ const List = ({ token }) => {
       }
 
     } catch (error) {
-      console.log(error)
       toast.error(error.message)
     }
   }
@@ -37,7 +36,6 @@ const List = ({ token }) => {
       }
 
     } catch (error) {
-      console.log(error)
       toast.error(error.message)
     }
   }
