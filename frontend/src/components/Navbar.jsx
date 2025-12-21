@@ -17,7 +17,6 @@ const Navbar = () => {
     setCartItems,
   } = useContext(ShopContext);
 
-  // restore token
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) setToken(storedToken);
