@@ -30,7 +30,6 @@ const Navbar = () => {
     navigate("/login");
   };
 
-  // close mobile menu on resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 640) setVisible(false);
