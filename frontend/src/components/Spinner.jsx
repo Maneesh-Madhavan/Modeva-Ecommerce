@@ -1,0 +1,16 @@
+const Spinner = ({ fullPage = false }) => {
+  return (
+    <div
+      className={`flex items-center justify-center ${
+        fullPage ? "min-h-[60vh]" : "py-10"
+      }`}
+    >
+      <div
+        className="w-10 h-10 border-4 border-gray-200 rounded-full animate-spin"
+        style={{ borderTopColor: "#997db0" }}
+      />
+    </div>
+  );
+};
+
+export default Spinner;
