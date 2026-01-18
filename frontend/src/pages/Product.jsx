@@ -75,14 +75,14 @@ const Product = () => {
       </div>
       {/* review and description */}
       <div className='mt-20'>
-        <div className='flex'>
+        {/* <div className='flex'>
           <b className='border px-5 py-3 text-sm'>Description</b>
           <p className='border px-5 py-3 text'>Reviews (122)</p>
         </div>
         <div className='flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500'>
           <p>dummmy text</p>
           <p>dummy</p>
-        </div>
+        </div> */}
       </div>
       {/* related products */}
       <RelatedProduct category={productData.category} subCategory={productData.subCategory}/>
