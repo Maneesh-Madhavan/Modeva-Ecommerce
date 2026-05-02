@@ -4,8 +4,8 @@ import { toast } from 'react-toastify'
 import axios from 'axios'
 
 const Login = ({setToken}) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("admin@modeva.com");
+  const [password, setPassword] = useState("ADMIN");
   const onSubmitHandler = async (e) => {
         try {
             e.preventDefault();

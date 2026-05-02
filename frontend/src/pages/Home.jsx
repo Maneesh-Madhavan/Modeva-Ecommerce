@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { motion } from 'framer-motion'
 import Hero from '../components/Hero'
 import LatestCollection from '../components/LatestCollection'
 import BestSeller from '../components/BestSeller'
@@ -21,7 +22,12 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 20 }}
+      transition={{ duration: 0.3 }}
+    >
       <Hero
         scrollToLatest={() => scrollWithOffset(latestRef)}
         scrollToBestSeller={() => scrollWithOffset(bestSellerRef)}
@@ -37,7 +43,7 @@ const Home = () => {
 
       <OurPolicy />
       <NewsletterBox />
-    </div>
+    </motion.div>
   )
 }
 

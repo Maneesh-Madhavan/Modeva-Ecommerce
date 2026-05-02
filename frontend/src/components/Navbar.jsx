@@ -15,6 +15,7 @@ const Navbar = () => {
     token,
     setToken,
     setCartItems,
+    setUserName,
   } = useContext(ShopContext);
 
   useEffect(() => {
@@ -24,7 +25,9 @@ const Navbar = () => {
 
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("userName");
     setToken("");
+    setUserName("");
     setCartItems({});
     setOpenProfile(false);
     navigate("/login");
@@ -80,6 +83,16 @@ const Navbar = () => {
 
       {/* Right Icons */}
       <div className="flex items-center gap-6">
+        {/* Admin Panel Button */}
+        <a 
+          href="https://modeva-admin.vercel.app/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="hidden sm:block border border-[#997db0] text-[#997db0] hover:bg-[#997db0] hover:text-white px-4 py-1.5 rounded-full text-xs font-semibold transition-colors"
+        >
+          Admin Panel
+        </a>
+
         {/* Search only on collection */}
         {location.pathname.includes("collection") && (
           <img

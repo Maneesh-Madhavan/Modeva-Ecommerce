@@ -10,6 +10,15 @@ const productSchema = new mongoose.Schema({
     sizes:{type:Array,required:true},
     bestseller:{type:Boolean},
     date:{type:Number,required:true},
+    reviews: [
+        {
+            user: { type: String, required: true },
+            name: { type: String, required: true },
+            rating: { type: Number, required: true },
+            comment: { type: String, required: true },
+            date: { type: String, required: true }
+        }
+    ]
 })
 
 const productModel = mongoose.model.product || mongoose.model("product",productSchema);

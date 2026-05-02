@@ -23,6 +23,11 @@ const Login = () => {
         if (response.data.success) {
           setToken(response.data.token)
           localStorage.setItem('token', response.data.token)
+          if(response.data.name) {
+            localStorage.setItem('userName', response.data.name)
+            // Note: Since we don't have setUserName imported in this component immediately, we can rely on reload or pass it. 
+            // Better to just reload for now, or update it in context if we destructure setUserName.
+          }
         } else {
           toast.error(response.data.message)
         }
@@ -34,6 +39,9 @@ const Login = () => {
         if (response.data.success) {
           setToken(response.data.token)
           localStorage.setItem('token', response.data.token)
+          if(response.data.name) {
+            localStorage.setItem('userName', response.data.name)
+          }
         } else {
           toast.error(response.data.message)
         }

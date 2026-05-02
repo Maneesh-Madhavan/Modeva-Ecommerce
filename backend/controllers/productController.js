@@ -66,4 +66,37 @@ const singleProduct = async (req,res) => {
     }
 }
 
-export {listProducts,addProduct,removeProduct,singleProduct}
+const addProductReview = async (req, res) => {
+  try {
+    const { productId, rating, comment, userId } = req.body;
+    
+    // Fetch user name
+    const user = await import('../models/userModel.js').then(m => m.default.findById(userId));
+    if (!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
+
+    const review = {
+      user: userId,
+      name: user.name,
+      rating: Number(rating),
+      comment,
+      date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+    };
+
+    const product = await productModel.findById(productId);
+    if (!product) {
+      return res.json({ success: false, message: "Product not found" });
+    }
+
+    product.reviews.push(review);
+    await product.save();
+
+    res.json({ success: true, message: "Review added successfully", reviews: product.reviews });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+}
+
+export {listProducts,addProduct,removeProduct,singleProduct,addProductReview}
